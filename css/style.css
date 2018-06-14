@@ -1,0 +1,302 @@
+* {
+	box-sizing: border-box;
+}
+html {
+	display: flex;
+	flex-direction: column;
+}
+body {
+    /*font-family: arial, sans-serif;*/
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+
+/*===================*/
+/*      HEADER       */
+/*===================*/
+.top {
+
+	display: flex;
+	justify-content: space-around;
+}	
+
+.icon {
+	height: 10em;
+	width: 15em;
+	vertical-align: middle;
+}
+.title {
+	font-family: 'Bad Script', cursive;
+	word-break: break-all;
+}
+
+
+/*===================*/
+/*        MAIN       */
+/*===================*/
+
+/*      header       */
+/*********************/
+header {
+	background: #dcdcdc;
+}
+.top {
+
+	display: flex;
+	justify-content: space-around;
+}	
+
+.icon {
+	height: 10em;
+	width: 15em;
+	vertical-align: middle;
+}
+.title {
+	font-family: 'Bad Script', cursive;
+	word-break: break-all;
+}
+
+
+/*       menu        */
+/*********************/
+.wrapper {
+	padding: 0;
+	margin: 0;
+    /* occupe la hauteur restante */
+    flex: 1 1 auto;
+
+    /* crée un contexte flex pour ses enfants */
+    display: flex;
+}
+
+#nav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+	font-size:1em;
+}
+
+#nav li {
+	display: inline-block;
+	width: auto;
+	height: 4em;
+	text-align: center;
+	line-height: 4em; 
+}
+
+#nav li:hover {
+	background-color: #9E9E9E;
+}
+
+#nav li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding-right: 2em;
+	padding-left: 2em;
+	text-decoration: none;
+}
+
+menu {
+ /*occupe la largeur restante*/ 
+	flex: 1;
+	background: #333;
+
+}
+
+/*     sidebar      */
+/********************/
+nav {
+	background: #ccf;
+}
+.sidebar {
+	/* view in first */
+	order: -1;
+	width: 10em;
+	/*margin-left: 0.5em;*/
+	text-align: center;
+}
+.sidebar ul {
+	margin-left:auto; 
+	margin-right:auto; 
+	text-align:left; 
+}
+
+/*    checkbox     */
+/*******************/
+/* Customize the label (the container) */
+.container {
+  display: block;
+  position: relative;
+  padding-left: 1em;
+  margin-bottom: 1.5em;
+  cursor: pointer;
+  font-size: 1.2em;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0.5em;
+  height: 1em;
+  width: 1em;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+ 	background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 3px 3px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+/*    card           */
+/*********************/
+.card {
+	display: flex;	
+	justify-content: space-around;
+	width: 40em; /*1*/
+	margin: 0; /*2*/
+	background-color: white; /*3*/
+	box-shadow: 0px 5px 20px #999; /*4*/
+}
+.card a { /*5*/
+  color: #333; 
+  /*text-decoration: none;*/
+}
+.card:hover .card-image img { /*6*/
+  width: 160%;
+  filter: grayscale(0);
+}
+.card-image {
+  height: 10em;/*1*/
+  position: relative;/*2*/
+  overflow: hidden;/*3*/
+}
+.card-image img {
+  width: 150%;/*4*/
+    /*5 - Méthode de centrage en fonction de la taille de l'image */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  filter: grayscale(1);/*6*/
+    /*7 - Transition */
+  transition-property: filter width; 
+  transition-duration: .3s;
+  transition-timing-function: ease;
+}
+.description {
+	word-break: break-all;
+}
+
+/*      FOOTER       */
+
+footer {
+	background: #feb;
+}
+
+/*===================*/
+/*   MEDIA QUERIES   */
+/*===================*/
+
+/* Responsive (fenêtres de moins de 120px) */
+@media screen and (max-width: 1200px) {
+	.title {
+		font-size: 80%;
+	}
+	.icon {
+		max-width: 65%;
+	}
+	.wrapper {
+	  /* affichage vertical */
+	  flex-direction: column;
+	}
+	#sidebar.collapsible .inner>h2 {
+		background: rgba(255,255,255,0.3);
+	}
+	#sidebar.collapsible .inner>h2.minus {
+		background-position: 0 -32px;
+	}
+	.body {
+		font-size: 80%;
+	}
+
+}
+
+
+
+
+/*@media screen and (max-width: 768px) {
+	#menu {
+		width:1.4em;
+		display: block;
+		background:#ddd;
+		font-size:1.35em;
+		text-align: center;
+	}
+	#nav.js {
+		display: none;
+	}
+	ul {
+		width:100%;
+		list-style:none;
+	}
+	li {
+		width:100%;
+		border-right:none;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	#menu {
+		display: none;
+	}
+}
+*/
