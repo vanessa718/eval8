@@ -103,12 +103,58 @@ header {
 	text-decoration: none;
 }
 
-menu {
+.menu {
  /*occupe la largeur restante*/ 
 	flex: 1;
 	background: #333;
-
+	margin: 0;
+	padding: 0;
+	text-align: center;
 }
+
+
+/*   menu responsive */
+.navigation {
+  max-width: none;
+  background: #000;
+  padding: 0;
+}
+
+.navigation li {
+  float: left;
+}
+
+.navigation li a {
+  display: block;
+  color: #fff;
+  padding: 1em;
+}
+
+.navigation li a:hover {
+  background: #000;
+}	
+
+.navheader { 
+  font-size: 1.2em;
+}
+
+.slide-trigger {
+  display: none; /* need this */
+  border: 1px solid #CCCCCC;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.slide-trigger span {
+  /*background-image: url("/a/i/dropdown-arrows.png");*/
+  background-position: 0 -14px;
+  display: block;
+  float: right;
+  margin-top: 3px;
+  height: 14px;
+  width: 32px;
+}	
 
 /*     sidebar      */
 /********************/
@@ -135,9 +181,9 @@ nav {
   display: block;
   position: relative;
   padding-left: 1em;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.2em;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1.1em;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -147,29 +193,29 @@ nav {
 
 /* Hide the browser's default checkbox */
 .container input {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
 }
 
 /* Create a custom checkbox */
 .checkmark {
-  position: absolute;
-  top: 0;
-  left: 0.5em;
-  height: 1em;
-  width: 1em;
-  background-color: #eee;
+	position: absolute;
+	top: 0;
+	left: 0.5em;
+	height: 1.1em;
+	width: 1.1em;
+	background-color: #eee;
 }
 
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
-  background-color: #ccc;
+	background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
 .container input:checked ~ .checkmark {
- 	background-color: #2196F3;
+ 	background-color: #333;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
@@ -186,10 +232,10 @@ nav {
 
 /* Style the checkmark/indicator */
 .container .checkmark:after {
-	left: 9px;
-	top: 5px;
-	width: 5px;
-	height: 10px;
+	left: 0.3em;
+	top: -0.1em;
+	width: 0.35em;
+	height: 0.8em;
 	border: solid white;
 	border-width: 0 3px 3px 0;
 	-webkit-transform: rotate(45deg);
@@ -203,19 +249,15 @@ nav {
 	justify-content: space-around;
 	width: 40em; /*1*/
 	margin: 0; /*2*/
-	background-color: white; /*3*/
+	background-color: pink; /*3*/
 	box-shadow: 0px 5px 20px #999; /*4*/
 }
 .card a { /*5*/
   color: #333; 
   /*text-decoration: none;*/
 }
-.card:hover .card-image img { /*6*/
-  width: 160%;
-  filter: grayscale(0);
-}
 .card-image {
-  height: 10em;/*1*/
+  height: 7em;/*1*/
   position: relative;/*2*/
   overflow: hidden;/*3*/
 }
@@ -231,9 +273,7 @@ nav {
   transition-property: filter width; 
   transition-duration: .3s;
   transition-timing-function: ease;
-}
-.description {
-	word-break: break-all;
+ 
 }
 
 /*      FOOTER       */
@@ -246,29 +286,43 @@ footer {
 /*   MEDIA QUERIES   */
 /*===================*/
 
-/* Responsive (fenêtres de moins de 120px) */
+/* Responsive (fenêtres de moins de 1200px) */
 @media screen and (max-width: 1200px) {
+	.body {
+		font-size: 80%;
+	}
+/*   header   */
 	.title {
 		font-size: 80%;
 	}
 	.icon {
 		max-width: 65%;
 	}
+/* MAIN       */
 	.wrapper {
 	  /* affichage vertical */
 	  flex-direction: column;
 	}
-	#sidebar.collapsible .inner>h2 {
+
+/*  menu     */
+	  .slide-trigger { display: block; }
+    .no-js .slide-trigger { display: none; }
+  .navigation { display: none; }
+    .no-js .navigation { display: block; }
+  .navigation { margin: 0 1.5em; }
+  .navigation li { float: none; }
+  .navigation li a { border-bottom: 1px solid #fff; }
+}
+
+
+	/*#sidebar.collapsible .inner>h2 {
 		background: rgba(255,255,255,0.3);
 	}
 	#sidebar.collapsible .inner>h2.minus {
 		background-position: 0 -32px;
 	}
-	.body {
-		font-size: 80%;
-	}
 
-}
+}*/
 
 
 
